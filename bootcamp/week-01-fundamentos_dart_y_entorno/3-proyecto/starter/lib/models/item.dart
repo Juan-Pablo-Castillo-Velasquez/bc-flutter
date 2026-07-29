@@ -25,13 +25,24 @@ class Item with Identifiable, Timestamped {
   // TODO: Agrega aquí las propiedades específicas de tu dominio.
   // Ejemplo (Biblioteca): final String author; final String isbn;
   // Ejemplo (Farmacia): final double price; final int stock;
+  //
+  // --- Implementación del aprendiz (Juan Pablo Castillo Velásquez) ---
+  // Dominio asignado: Radio comunitaria.
+  // `Item` representa un programa de la emisora (program).
+  final String host; // presentador/a del programa (host)
+  final String schedule; // horario de transmisión, ej. "Lun-Vie 06:00-08:00"
+  final String sponsor; // patrocinador principal del programa (sponsor)
 
   const Item({
     required this.id,
     required this.name,
     required this.createdAt,
+    required this.host,
+    required this.schedule,
+    required this.sponsor,
   });
 
   @override
-  String toString() => '#$shortId $name';
+  String toString() =>
+      '#$shortId $name — con $host ($schedule) | Patrocina: $sponsor';
 }
